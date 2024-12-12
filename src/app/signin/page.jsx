@@ -10,7 +10,7 @@ export default function SignIn() {
       {/* Left Section - Image and Logo */}
       <div className="lg:w-1/2 relative flex flex-col justify-center items-center bg-gray-100">
         {/* Logo */}
-        <div className="absolute top-4 left-4 z-10 flex items-center px-3 py-2 rounded-md">
+        <div className="absolute top-4 left-4 z-10">
           <Image
             src={Logo} // Replace with your logo path
             alt="Vibe Logo"
@@ -20,20 +20,22 @@ export default function SignIn() {
         </div>
 
         {/* Main Image */}
-        <Image
-          src={BgImage} // Replace with your image path
-          alt="Sign Up Background"
-          layout="fill"
-          objectFit="cover"
-          className="absolute inset-0"
-        />
+        <div className="absolute inset-0">
+          <Image
+            src={BgImage} // Replace with your image path
+            alt="Sign In Background"
+            layout="fill"
+            objectFit="cover"
+            className="z-0"
+          />
+        </div>
       </div>
 
-      {/* Right Section - Sign Up Form */}
+      {/* Right Section - Sign In Form */}
       <div className="lg:w-1/2 flex flex-col justify-center items-center p-8 bg-white">
         <div className="w-full max-w-md">
           <h1 className="text-3xl font-bold text-gray-900">Welcome</h1>
-          <p className="mt-1 text-sm text-gray-500">Please Sign-Up Here</p> {/* Adjusted size and color */}
+          <p className="mt-1 text-sm text-gray-500">Please Sign-In Here</p>
 
           <form className="mt-6 space-y-4">
             {/* Email Address */}
@@ -72,15 +74,14 @@ export default function SignIn() {
               />
             </div>
 
-            {/* Remember me and Forgot Password */}
+            {/* Remember Me and Forgot Password */}
             <div className="flex items-center justify-between">
               <div className="flex items-center">
                 <input
                   type="checkbox"
                   id="terms"
                   name="terms"
-                  className="h-4 w-4 text-gold-600 border-gray-300 rounded" // Changed checkbox color
-                  required
+                  className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
                 />
                 <label
                   htmlFor="terms"
@@ -89,11 +90,10 @@ export default function SignIn() {
                   Remember Me
                 </label>
               </div>
-              <Link
-                href="/forgot-password"
-                className="text-sm text-gold-600 hover:underline" // Changed color to gold
-              >
-                Forgot Password?
+              <Link href="/forgot-password">
+                <a className="text-sm text-blue-600 hover:underline">
+                  Forgot Password?
+                </a>
               </Link>
             </div>
 
@@ -107,15 +107,14 @@ export default function SignIn() {
 
             {/* Not Registered Yet */}
             <div className="mt-4 text-center">
-              <label htmlFor="not-register">
+              <span className="text-sm text-gray-700">
                 Not Registered Yet?
-                <Link
-                  href="/Account"
-                  className="text-black-600 hover:underline ml-1"
-                >
+              </span>
+              <Link href="/signup">
+                <a className="ml-1 text-blue-600 hover:underline">
                   Create an Account
-                </Link>
-              </label>
+                </a>
+              </Link>
             </div>
           </form>
         </div>
